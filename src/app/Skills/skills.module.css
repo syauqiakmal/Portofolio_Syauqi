@@ -1,0 +1,255 @@
+/* === WRAPPER === */
+.skillsWrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background: linear-gradient(135deg, #2e9b24 0%, #054d09 50%, #000 100%);
+  padding: 60px 20px;
+}
+
+/* === BACKGROUND TEXT === */
+.skillsText {
+  position: relative;
+  top: 1vh;
+  font-family: 'Arial Black', sans-serif;
+  font-weight: 900;
+  font-size: clamp(3rem, 10vw, 8rem);
+  text-align: center;
+  width: 100%;
+  color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* === SKILLS GRID === */
+.skillsGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 25px;
+  justify-content: center;
+  align-items: stretch;
+  margin: 0 auto;
+  max-width: 1000px;
+  z-index: 2;
+}
+
+/* === SKILL ITEM === */
+.skillItem {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.skillItem:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* === SKILL LOGO === */
+.skillLogo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.skillItem:hover .skillLogo {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* === SKILL TEXT === */
+.skillName {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: white;
+}
+
+.skillLevel {
+  font-size: 12px;
+  font-weight: 600;
+  color: #f7f7f7;
+  margin-bottom: 8px;
+}
+
+/* === SKILL PROGRESS === */
+.skillProgress {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.skillProgressBar {
+  height: 100%;
+  background: linear-gradient(90deg, #ddebdb, #0dc916);
+  border-radius: 2px;
+  transition: width 0.8s ease;
+  box-shadow: 0 0 8px rgba(46, 155, 36, 0.5);
+}
+
+/* === SKILL DESCRIPTION === */
+.skillDescription {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.2;
+}
+
+/* === Certificates Section === */
+.certificatesSection {
+  position: relative;
+  z-index: 10;
+  background: linear-gradient(135deg, #000 0%, #054d09 50%, #2e9b24 100%);
+  padding: 80px 20px;
+  margin-top: 100px;
+}
+
+.certificatesTitle {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #41d334, #f3f3f3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 50px;
+}
+
+.certificatesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.certificateCard {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.certificateCard:hover {
+  transform: translateY(-6px) scale(1.02);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.certificateHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.certificateStatus {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: #1be709;
+}
+
+.certificateTitle {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: white;
+}
+
+.certificateIssuer {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.certificateFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.certificateDate {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.certificateId {
+  font-size: 11px;
+  font-family: monospace;
+  background: rgba(33, 163, 21, 0);
+  padding: 4px 6px;
+  border-radius: 4px;
+  color: #50d36100;
+}
+
+.viewButton {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: #1cec09;
+  background: rgb(46, 155, 36);
+  padding: 6px 10px;
+  border-radius: 16px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.3s ease;
+}
+
+.certificateCard:hover .viewButton {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .skillsText {
+    font-size: 10vw;
+  }
+  .skillsGrid {
+    padding-top: 40vh;
+    grid-template-columns: repeat(10, 10%);
+    grid-template-rows: repeat(40, auto);
+  }
+}
+@media (max-width: 480px) {
+  .skillsGrid {
+    padding: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 16px;
+  }
+  .skillItem {
+    min-height: 140px;
+  }
+  .certificatesSection {
+    padding: 40px 15px;
+  }
+}
