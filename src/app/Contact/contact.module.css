@@ -49,11 +49,10 @@
 }
 
 .errorText {
-  color: #f87171; /* merah soft */
+  color: #f87171;
   font-size: 0.8rem;
   margin-top: 4px;
 }
-
 
 .inputWrapper {
   position: relative;
@@ -160,8 +159,8 @@
 
 .businessCard {
   position: absolute;
-  width: 23rem; /* Sedikit lebih lebar */
-  height: 21rem; /* Tinggi disesuaikan agar teks tidak padat */
+  width: 23rem;
+  height: 21rem;
   border-radius: 1.5rem;
   cursor: grab;
 }
@@ -181,7 +180,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .profileContainer {
@@ -194,9 +192,9 @@
 }
 
 .imageWrapper {
-  position: relative; /* wajib untuk fill */
-  width: 130px;       /* ukuran pasti */
-  height: 130px;      /* ukuran pasti */
+  position: relative;
+  width: 130px;
+  height: 130px;
 }
 
 .profileImage {
@@ -205,7 +203,6 @@
   border: 3px solid white;
   box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
-
 
 .cardPattern {
   position: absolute;
@@ -238,7 +235,7 @@
 .cardContent {
   position: relative;
   z-index: 10;
-  padding: 9rem 1.5rem 1rem; /* padding top diperbesar agar teks mulai di bawah foto */
+  padding: 9rem 1.5rem 1rem;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -252,7 +249,6 @@
   font-size: 1.4rem;
   font-weight: bold;
   margin-top: 20px;
- 
 }
 
 .cardRole {
@@ -297,7 +293,298 @@
   animation: float ease-in-out infinite;
 }
 
-/* Active: shrink */
+/* RESPONSIVE BREAKPOINTS */
+
+/* Tablet Landscape (1024px and below) */
+@media (max-width: 1024px) {
+  .contactWrapper {
+    padding: 1.5rem;
+  }
+  
+  .contactGrid {
+    gap: 2rem;
+  }
+  
+  .formTitle {
+    font-size: 2.2rem;
+  }
+  
+  .businessCard {
+    width: 20rem;
+    height: 18rem;
+  }
+  
+  .cardContainer {
+    height: 20rem;
+  }
+  
+  .imageWrapper {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .cardContent {
+    padding: 8rem 1.2rem 1rem;
+  }
+  
+  .cardName {
+    font-size: 1.2rem;
+  }
+}
+
+/* Tablet Portrait (768px and below) */
+@media (max-width: 768px) {
+  .contactWrapper {
+    padding: 1rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+  
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 100%;
+  }
+  
+  .formHeader {
+    text-align: center;
+  }
+  
+  .formTitle {
+    font-size: 2rem;
+  }
+  
+  .formFields {
+    gap: 1.2rem;
+  }
+  
+  .businessCard {
+    width: 18rem;
+    height: 16rem;
+    position: static;
+    margin: 0 auto;
+  }
+  
+  .cardContainer {
+    height: auto;
+    padding: 2rem 0;
+    position: static;
+  }
+  
+  .rope {
+    display: none;
+  }
+  
+  .imageWrapper {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .cardContent {
+    padding: 7rem 1rem 1rem;
+    gap: 0.8rem;
+  }
+  
+  .cardName {
+    font-size: 1.1rem;
+    margin-top: 15px;
+  }
+  
+  .cardRole,
+  .cardEmail,
+  .cardTagline {
+    font-size: 0.7rem;
+  }
+  
+  .cardPattern::before {
+    width: 6rem;
+    height: 6rem;
+  }
+  
+  .cardPattern::after {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+/* Mobile Large (480px and below) */
+@media (max-width: 480px) {
+  .contactWrapper {
+    padding: 0.8rem;
+    padding-top: 1.5rem;
+  }
+  
+  .contactGrid {
+    gap: 1.5rem;
+  }
+  
+  .formTitle {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+  
+  .formSubtitle {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .inputField, .textArea {
+    padding: 0.9rem 0.9rem 0.9rem 2.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .inputIcon {
+    left: 0.9rem;
+    top: 0.9rem;
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+  
+  .submitButton {
+    padding: 0.9rem;
+    font-size: 0.9rem;
+  }
+  
+  .businessCard {
+    width: 16rem;
+    height: 14rem;
+  }
+  
+  .imageWrapper {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .cardContent {
+    padding: 6rem 0.8rem 0.8rem;
+    gap: 0.6rem;
+  }
+  
+  .cardName {
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+  
+  .cardRole,
+  .cardEmail,
+  .cardTagline {
+    font-size: 0.65rem;
+  }
+  
+  .cardPattern::before {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 5rem;
+    height: 5rem;
+  }
+  
+  .cardPattern::after {
+    bottom: 0.5rem;
+    left: 0.5rem;
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+/* Mobile Small (360px and below) */
+@media (max-width: 360px) {
+  .contactWrapper {
+    padding: 0.5rem;
+    padding-top: 1rem;
+  }
+  
+  .formTitle {
+    font-size: 1.6rem;
+  }
+  
+  .businessCard {
+    width: 14rem;
+    height: 12.5rem;
+  }
+  
+  .imageWrapper {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .cardContent {
+    padding: 5.5rem 0.6rem 0.6rem;
+    gap: 0.5rem;
+  }
+  
+  .cardName {
+    font-size: 0.9rem;
+    margin-top: 8px;
+  }
+  
+  .cardRole,
+  .cardEmail,
+  .cardTagline {
+    font-size: 0.6rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .submitButton:hover {
+    transform: none;
+    background-color: initial;
+  }
+  
+  .businessCard {
+    cursor: default;
+  }
+  
+  .businessCard.dragging {
+    cursor: default;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .contactWrapper {
+    padding: 1rem;
+  }
+  
+  .contactGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+  
+  .cardContainer {
+    height: auto;
+    padding: 1rem 0;
+  }
+  
+  .businessCard {
+    width: 14rem;
+    height: 12rem;
+  }
+  
+  .imageWrapper {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .cardContent {
+    padding: 5rem 0.8rem 0.5rem;
+    gap: 0.4rem;
+  }
+  
+  .cardName {
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+  
+  .cardRole,
+  .cardEmail,
+  .cardTagline {
+    font-size: 0.6rem;
+  }
+}
+
+/* Animations */
 @keyframes pressDown {
   0% {
     transform: scale(1);
@@ -317,3 +604,7 @@
   50% { transform: translateY(-20px) rotate(180deg); }
 }
 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
