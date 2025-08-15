@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 // import { ChevronDown, ChevronUp, ExternalLink, Github, Eye, Calendar, Code, Star } from 'lucide-react';
 import styles from "./project.module.css";
+import Image from 'next/image';
+
 // Type definitions
 interface ProjectDetails {
   description: string;
@@ -32,12 +34,12 @@ const ProjectsPortfolio: React.FC = () => {
 
 
   // Data project dummy - bisa diganti dengan data real
-const projects: Project[] = [
+  const projects = useMemo<Project[]>(() => [
   {
     id: 1,
     title: " Internship Frontend Developer Project in Bina Nusantara Grup: Petahilirisasi.id",
     shortDesc: "Geodashboard: Land Cover Change Detection Based-On Landsat For Downstreaming Nickel, Bauxite And Silica Sand Areas ",
-    images: [ "petahilirisasilanding.png", "/petahilirisasi.png", "/petahilirisasi_Arcitecture.png"],
+    images: [ "/petahilirisasilanding.png", "/petahilirisasi.png", "/petahilirisasi_Arcitecture.png"],
     image: "",
     tech: ["React.js", "PostGIS", "Python", "Docker",  "FastAPI", "Landsat(.tiff) Data", "Leaflet"],
     status: "Completed",
@@ -87,7 +89,7 @@ const projects: Project[] = [
     id: 3,
     title: " Internship Frontend Developer Project in Bina Nusantara Grup: GeoBee Dashboard",
     shortDesc: "An Intelligent Geospatial Platform for Enhancing Waste Management in Tangerang City ",
-    images: [ "/Geobee_about.png","/Geobee.png","3DGeobee.png", "/Geobee_Layer.jpg"],
+    images: [ "/Geobee_about.png","/Geobee.png","/3DGeobee.png", "/Geobee_Layer.jpg"],
         image: "",
     tech: ["React.js", "PostGIS",  "Python", "FastAPI", "Docker", "Clustering", "Machine Learning", "Shapfile Data", "Leaflet"],
     status: "Completed",
@@ -147,7 +149,7 @@ const projects: Project[] = [
     id: 5,
     title: "Instagram Clone Microservice",
     shortDesc: "Instagram clone built with Golang microservices",
-    images: ["https://images.unsplash.com/photo-1611162616305-4f4c8c21a3a2?w=400&h=300&fit=crop"],
+    images: [],
     image: "",
     tech: ["Golang", "Docker", "PostgreSQL", "Redis", "RabbitMQ"],
     status: "Completed",
@@ -167,16 +169,16 @@ const projects: Project[] = [
       outcome: "Berhasil membangun platform dengan performa cepat, skalabel, dan mudah di-maintain."
     }
   }
-];
+  ], []); // ✅ kosong = cuma dibuat sekali
 
   // Initialize image indices
   useEffect(() => {
-    const initialIndices: {[key: number]: number} = {};
+    const initialIndices: { [key: number]: number } = {};
     projects.forEach(project => {
       initialIndices[project.id] = 0;
     });
     setCurrentImageIndex(initialIndices);
-  }, []);
+  }, [projects]); // ✅ sekarang aman
 
   // Auto-slide images
   useEffect(() => {
@@ -338,14 +340,28 @@ const projects: Project[] = [
                             className={styles.carouselTrack}
                             style={{ transform: `translateX(-${(currentImageIndex[selectedProject.id] || 0) * 100}%)` }}
                           >
-                            {selectedProject.images.map((image, index) => (
-                              <img
-                                key={index}
-                                src={image}
-                                alt={`${selectedProject.title} ${index + 1}`}
+                           {selectedProject.images?.length > 0 ? (
+                            selectedProject.images.map((image, index) => (
+                              <div key={index} className={styles.carouselImageWrapper}>
+                                <Image
+                                  src={image}
+                                  alt={`${selectedProject.title} ${index + 1}`}
+                                  fill
+                                  className={styles.carouselImage}
+                                />
+                              </div>
+                            ))
+                          ) : (
+                            <div className={styles.carouselImageWrapper}>
+                              <Image
+                                src="/placeholder.png"
+                                alt="No image available"
+                                fill
                                 className={styles.carouselImage}
                               />
-                            ))}
+                            </div>
+                          )}
+
                           </div>
                           
                           {/* Tombol navigasi */}
@@ -470,17 +486,20 @@ const projects: Project[] = [
               {/* Project Image */}
               <div className={styles.cardImageWrapper}>
                 {project.images.map((image, imgIndex) => (
-                    <img
-                      key={imgIndex}
-                      src={image}
-                      alt={`${project.title} ${imgIndex + 1}`}
-                      className={`${styles.slideshowImage} ${
-                        imgIndex === (currentImageIndex[project.id] || 0) 
-                          ? 'opacity-100' 
-                          : 'opacity-0'
-                      }`}
-                    />
-                  ))}
+                  <Image
+                    key={imgIndex}
+                    src={image}
+                    alt={`${project.title} ${imgIndex + 1}`}
+                    fill // ganti width/height jadi full container
+                    className={`${styles.slideshowImage} ${
+                      imgIndex === (currentImageIndex[project.id] || 0) 
+                        ? 'opacity-100' 
+                        : 'opacity-0'
+                    }`}
+                    sizes="(max-width: 768px) 100vw, 50vw" // biar responsif
+                    priority={imgIndex === 0} // gambar pertama diprioritaskan
+                  />
+                ))}
                 <div className={styles.cardImageOverlay}></div>
 
                 {/* Status Badge */}

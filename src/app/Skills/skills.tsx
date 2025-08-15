@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Award, Calendar, CheckCircle, Eye } from 'lucide-react';
 import styles from './skills.module.css';
+import Image from "next/image";
 
 const Skills: React.FC = () => {
-  const [hoveredSkill, setHoveredSkill] = useState<number | null>(null);
+  const [_hoveredSkill, setHoveredSkill] = useState<number | null>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement[]>([]);
 
@@ -107,7 +108,14 @@ const certificates = [
                 onMouseEnter={() => setHoveredSkill(skill.id)}
                 onMouseLeave={() => setHoveredSkill(null)}
               >
-                <img src={skill.logo} alt={skill.name} className={styles.skillLogo} />
+                <div className={styles.skillWrapper}>
+                  <Image
+                    src={skill.logo}
+                    alt={skill.name}
+                    fill
+                    className={styles.skillLogo}
+                  />
+                </div>
                 <div className={styles.skillName}>{skill.name}</div>
                 <div className={styles.skillLevel}>{skill.level}%</div>
                 <div className={styles.skillProgress}>

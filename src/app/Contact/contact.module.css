@@ -191,18 +191,21 @@
   display: flex;
   justify-content: center;
   z-index: 20;
-  
+}
+
+.imageWrapper {
+  position: relative; /* wajib untuk fill */
+  width: 130px;       /* ukuran pasti */
+  height: 130px;      /* ukuran pasti */
 }
 
 .profileImage {
-  width: 130px;
-  height: 130px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid white;
   box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-  
 }
+
 
 .cardPattern {
   position: absolute;

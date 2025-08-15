@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Send, Mail, User, MessageSquare } from 'lucide-react';
 import styles from './contact.module.css';
 import emailjs from "emailjs-com";
+import Image from "next/image";
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -11,7 +13,7 @@ const Contact = () => {
   const [ropeLength, setRopeLength] = useState(200);
   const cardRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [emailError, setEmailError] = useState("");
+  const [_emailError, setEmailError] = useState("");
   const [errors, setErrors] = useState({
   name: "",
   email: "",
@@ -77,7 +79,7 @@ const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
   e.preventDefault();
 
 
-  let newErrors = { name: "", email: "", message: "" };
+  const newErrors = { name: "", email: "", message: "" };
   let isValid = true;
 
   // Validasi Nama
@@ -246,11 +248,14 @@ const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
           
                 {/* Foto profil bulat di tengah */}
                 <div className={styles.profileContainer}>
-                  <img 
-                    src="/foto2.png" /* ganti dengan foto profil kamu */
-                    alt="Profile Syauqi"
-                    className={styles.profileImage}
-                  />
+                  <div className={styles.imageWrapper}>
+                    <Image 
+                      src="/foto2.png"
+                      alt="Profile Syauqi"
+                      fill
+                      className={styles.profileImage}
+                    />
+                  </div>
                 </div>
           
                 <div className={styles.cardContent}>

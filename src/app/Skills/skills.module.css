@@ -58,6 +58,13 @@
 }
 
 /* === SKILL LOGO === */
+.skillWrapper {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+
 .skillLogo {
   width: 60px;
   height: 60px;

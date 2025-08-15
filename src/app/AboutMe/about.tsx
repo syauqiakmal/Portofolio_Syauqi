@@ -63,7 +63,7 @@ return (
           </div>
 
           <div className={styles.dreamText}>
-            "My dream is to become a world-class full-stack developer who creates innovative digital solutions that make a positive impact on people's lives."
+             &quot;My dream is to become a world-class full-stack developer who creates innovative digital solutions that make a positive impact on people&apos;s lives. &quot;
           </div>
 
           {/* Button to toggle CV visibility */}

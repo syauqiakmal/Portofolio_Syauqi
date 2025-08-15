@@ -3,11 +3,11 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import styles from "./Header.module.css";
 
-interface HeaderProps {
-  scrollToSection: (section: string) => void; // 🔹 fungsi dari parent
-}
+// interface HeaderProps {
+//   scrollToSection: (section: string) => void; // 🔹 fungsi dari parent
+// }
 
-const Header = ({ scrollToSection }: HeaderProps) => {
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const menuWrapperRef = useRef<HTMLDivElement>(null);

@@ -97,16 +97,16 @@ const prevSlide = () => {
   };
 
 
-const scrollToSection = (section: string) => {
-  if (section === "about" && aboutRef.current) aboutRef.current.scrollIntoView({ behavior: "smooth" });
-  if (section === "projects" && projectRef.current) projectRef.current.scrollIntoView({ behavior: "smooth" });
-    if (section === "skills" && skillsRef.current) skillsRef.current.scrollIntoView({ behavior: "smooth" });
-  if (section === "contact" && contactRef.current) contactRef.current.scrollIntoView({ behavior: "smooth" });
-};
+// const scrollToSection = (section: string) => {
+//   if (section === "about" && aboutRef.current) aboutRef.current.scrollIntoView({ behavior: "smooth" });
+//   if (section === "projects" && projectRef.current) projectRef.current.scrollIntoView({ behavior: "smooth" });
+//     if (section === "skills" && skillsRef.current) skillsRef.current.scrollIntoView({ behavior: "smooth" });
+//   if (section === "contact" && contactRef.current) contactRef.current.scrollIntoView({ behavior: "smooth" });
+// };
 
   return (
     <>
-    <Header scrollToSection={scrollToSection} />
+    <Header />
     <div className={styles.background}>
 
       <video
